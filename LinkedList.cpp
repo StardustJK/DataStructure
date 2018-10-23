@@ -11,16 +11,19 @@ typedef struct LNode {
 	struct LNode *next;
 }LNode, *LinkList;
 
-//创建链表(逆序）
+//创建链表
 void createList_L(LinkList& L,int n) {
 	L = (LinkList)malloc(sizeof(LNode));
 	L->next = NULL;
-	LNode* p;
+	LinkList p,q;
+	q = L;
+	
 	for (int i = 0;i < n;i++) {
-		p = (LNode*)malloc(sizeof(LNode));
+		p = (LinkList)malloc(sizeof(LNode));
 		scanf_s("%d",&p->data);
-		p->next = L->next;
-		L->next= p;
+		p->next = q->next;
+		q->next= p;
+		q = p;
 	}
 	
 }

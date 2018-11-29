@@ -1,14 +1,15 @@
+//string match 的暴力算法
+
 #include<stdio.h>
 #include<stdlib.h>
 #define MAXSIZE 100
 typedef struct String {
 	char *data;
-	int length;
 }String;
 
-void initString(String &string){
+void initString(String &string) {
 	string.data = (char*)malloc(sizeof(char)*MAXSIZE);
-	string.length = 0;
+	string.data[0] = 0;
 }
 
 void createString(String &string) {
@@ -16,55 +17,59 @@ void createString(String &string) {
 	printf("请输入字符串,以回车键结束\n");
 	int n = 0;
 	char c;
-	do
-	{	
+	while (true)
+	{
+
 		scanf_s("%c", &c);
-		string.data[n] = c;
+		if (c == '\n')
+			break;
 		n++;
-	} while (c != '\n'); 
-	string.length = n;
+		string.data[n] = c;
+
+	}
+	string.data[0] = n;
 }
 void showString(String string) {
-	for (int i = 0;i <string.length;i++) {
+	for (int i = 1;i <=string.data[0];i++) {
 		printf("%c", string.data[i]);
 	}
 	printf("\n");
 }
 
-int stringMatching(String s1, String s2) {
-	int i = 0, j = 0;
-	for (;i < s1.length-1, j <s2.length-1;) {
-			if (s1.data[i] == s2.data[j]) {
-				i++;
-				j++;
-				continue;
-			}
-			else {
-				i = i - j + 2;
-				j = 0;
-				continue;
-			}
-
+int forcesMatch2(String s1, String s2) {
+	int i = 1, j = 1;
+	for (;i <=s1.data[0]&&j <=s2.data[0];) {
+		if (s1.data[i] == s2.data[j]) {
+			i++;
+			j++;
 		}
-	if (i > s1.length) {
-		return -1;
-	 }
+		else {
+			i = i - j + 2;
+			j = 1;
+		}
+
+	}
+	if (j > s2.data[0]) {
+		return i-s2.data[0];
+	}
 	else {
-		return i - j + 1;
+		return -1;
 	}
 
 }
 
 int main() {
-	String s1,s2;
+	String s1, s2;
 	initString(s1);
 	initString(s2);
 	printf("请输入主串的信息:\n");
 	createString(s1);
+	showString(s1);
 	printf("请输入子串的信息:\n");
 	createString(s2);
+	showString(s2);
 	int n = 0;
-	n = stringMatching(s1, s2);
+	n = forcesMatch2(s1, s2);
 	if (n == -1) {
 		printf("不匹配\n");
 	}

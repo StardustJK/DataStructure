@@ -34,6 +34,12 @@ int LocateVex(MGraph G, VertexType v) {
 	return -1;
 }
 
+bool isExist(MGraph G,int i,int j) {
+	if (G.arcs[i][j].adj == 1)
+		return 1;
+	return 0;
+}
+
 //无向图
 void createUDG(MGraph &G) {
 	printf("请依次输入顶点个数、弧的条数\n");
@@ -59,6 +65,11 @@ void createUDG(MGraph &G) {
 		j = LocateVex(G, j);
 		if (i == -1 || j == -1) {
 			printf("输入错误请重新输入\n");
+			k--;
+			continue;
+		}
+		if (isExist(G, i, j)) {
+			printf("重复输入,请重新输入\n");
 			k--;
 			continue;
 		}

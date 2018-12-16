@@ -88,11 +88,16 @@ void createUDG(ALGraph &G) {
 			k--;
 			continue;
 		}
-		ArcNode *s;
-		s = (ArcNode*)malloc(sizeof(ArcNode));
-		s->next = G.vertices[i].firstarc;
-		G.vertices[i].firstarc = s;
-		s->adjvex = j;
+		ArcNode *s1;
+		s1 = (ArcNode*)malloc(sizeof(ArcNode));
+		s1->next = G.vertices[i].firstarc;
+		G.vertices[i].firstarc = s1;
+		s1->adjvex = j;
+		ArcNode *s2;
+		s2 = (ArcNode*)malloc(sizeof(ArcNode));
+		s2->next = G.vertices[j].firstarc;
+		G.vertices[j].firstarc = s2;
+		s2->adjvex = i;
 	}
 }
 

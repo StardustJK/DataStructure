@@ -49,3 +49,10 @@ void showLS(LinkStack S) {
 		S = S->next;
 	}
 }
+bool isEmpty(LinkStack S) {
+	if (S->next == NULL) {
+		return 1;
+	}
+	else
+		return 0;
+}

@@ -16,7 +16,7 @@ void creatLinkS(LinkStack &S, int n)
 
 {
 	LinkStack q;
-	printf("输入LinkStack数据\n");
+	printf("please input the data of LinkStack \n");
 	for (int i = 0;i<n;i++)
 	{
 		q = (LinkStack)malloc(sizeof(Snode));
@@ -43,7 +43,7 @@ void Pop_LS(LinkStack &S, ElemType &e) {
 
 void showLS(LinkStack S) {
 	S = S->next;
-	printf("栈为:\n");
+	printf("the stack is:\n");
 	while (S != NULL) {
 		printf("%d\n", S->data);
 		S = S->next;

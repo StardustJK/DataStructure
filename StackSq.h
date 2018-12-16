@@ -24,7 +24,7 @@ void InitSqStack(SqStack&S) {
 
 void GetTop(SqStack S, ElemType &e) {
 	if (S.top == S.base) {
-		printf("Õ»¿Õ\n");
+		printf("stack empty\n");
 		return;
 	}
 	e = *(S.top - 1);
@@ -46,7 +46,7 @@ void Push_SqS(SqStack &S, ElemType e) {
 
 void Pop_SqS(SqStack&S, ElemType &e) {
 	if (S.top == S.base) {
-		printf("Õ»¿Õ\n");
+		printf("stack empty\n");
 		return;
 	}
 	S.top--;
@@ -54,7 +54,7 @@ void Pop_SqS(SqStack&S, ElemType &e) {
 }
 void showSqS(SqStack S) {
 	S.top--;
-	printf("Õ»Îª:\n");
+	printf("stack is:\n");
 	for (;S.top >= S.base;S.top--)
 		printf("%d\n", *S.top);
 }

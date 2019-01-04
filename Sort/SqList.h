@@ -14,7 +14,7 @@ void init_SqList(SqList &L) {
 	L.length = 0;
 }
 
-void create_SqList(SqList &L,int a[]) {
+void create_SqList(SqList &L,int a[]) {//´Ó1¿ªÊ¼
 	for (int i = 1;i <= a[0];i++) {
 		L.data[i] = a[i];
 		L.length++;

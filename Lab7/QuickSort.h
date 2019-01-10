@@ -36,5 +36,5 @@ void QuickSort(int a[], int length) {
 	compare = 0;
 	change = 0;
 	QSort(a, 1, length);
-	printf("比较次数：%d,交换次数:%d", compare, change);
+	printf("比较次数：%d,交换次数:%d\n", compare, change);
 }

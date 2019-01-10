@@ -1,6 +1,6 @@
 #pragma once
 #include<stdio.h>
-#define MAXLENGTH 101
+#define MAXLENGTH 111
 
 int Mcompare, Mchange;
 void Merge(int a[], int b[], int i, int m, int n) {
